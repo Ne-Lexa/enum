@@ -10,11 +10,11 @@ Table of Contents
    * [Installation](#installation)
    * [Enum declaration](#enum-declaration)
    * [Usage](#usage)
-      * [To loop a enum object.](#to-loop-a-enum-object)
-      * [To compare the enum values, use === operator.](#to-compare-the-enum-values-use--operator)
-      * [Convert a string to enum object.](#convert-a-string-to-enum-object)
+      * [To loop a enum object](#to-loop-a-enum-object)
+      * [To compare the enum values, use === operator](#to-compare-the-enum-values-use--operator)
+      * [Convert a string to enum object](#convert-a-string-to-enum-object)
       * [Switch case](#switch-case)
-      * [Use enum in the type hint.](#use-enum-in-the-type-hint)
+      * [Use enum in the type hint](#use-enum-in-the-type-hint)
       * [Add some logic to enum](#add-some-logic-to-enum)
       * [Initialization of values ​​without constructor](#initialization-of-values-without-constructor)
    * [Usage tips](#usage-tips)
@@ -60,7 +60,7 @@ assert($enum->value() === 1 << 1);
 assert($enum->ordinal() === 1);
 ```
 
-## To loop a enum object.
+## To loop a enum object
 ```php
 foreach (UserStatus::values() as $userStatus) {
     printf('User status: %s, status id: %d, ordinal: %d' . PHP_EOL,
@@ -78,7 +78,7 @@ User status: INACTIVE, status id: 4, ordinal: 2
 User status: DELETED, status id: 8, ordinal: 3
 ```
 
-## To compare the enum values, use `===` operator.
+## To compare the enum values, use `===` operator
 ```php
 $userStatus = UserStatus::DELETED();
 if ($userStatus === UserStatus::DELETED()) {
@@ -86,7 +86,7 @@ if ($userStatus === UserStatus::DELETED()) {
 }
 ```
 
-## Convert a string to enum object.
+## Convert a string to enum object
 ```php
 $enum = UserStatus::valueOf('ACTIVE');
 
@@ -118,7 +118,7 @@ Output:
 Pending status
 ```
 
-## Use enum in the type hint.
+## Use enum in the type hint
 ```php
 /**
  * @var UserStatus
@@ -347,7 +347,7 @@ Output:
 
 # Changelog
 
-Changes are documented in the (release page)[https://github.com/nelexa/enum/releases].
+Changes are documented in the [releases page](https://github.com/Ne-Lexa/enum/releases).
 
 # License
 
