@@ -13,8 +13,8 @@ class EnumGenerationDocBlockTest extends TestCase
     {
         $actualDocBlock = <<<'PHPDOC'
 /**
- * @method static self TOP
- * @method static self NEW
+ * @method static self TOP()
+ * @method static self NEW()
  */
 
 PHPDOC;
