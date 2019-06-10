@@ -1,16 +1,17 @@
 # nelexa/enum - Enum implementation for PHP
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Ne-Lexa/enum/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Ne-Lexa/enum/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/Ne-Lexa/enum/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Ne-Lexa/enum/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/Ne-Lexa/enum/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Ne-Lexa/enum/build-status/master)
-
 [![Packagist Version](https://img.shields.io/packagist/v/nelexa/enum.svg)](https://packagist.org/packages/nelexa/enum)
 [![Packagist](https://img.shields.io/packagist/dt/nelexa/enum.svg?color=%23ff007f)](https://packagist.org/packages/nelexa/enum)
 [![Build Status](https://travis-ci.org/Ne-Lexa/enum.svg?branch=master)](https://travis-ci.org/Ne-Lexa/enum)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Ne-Lexa/enum/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Ne-Lexa/enum/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/Ne-Lexa/enum/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Ne-Lexa/enum/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/Ne-Lexa/enum/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Ne-Lexa/enum/build-status/master)
 [![License](https://img.shields.io/packagist/l/nelexa/enum.svg)](https://packagist.org/packages/nelexa/enum)
 
 Table of Contents
 =================
+   * [nelexa/enum - Enum implementation for PHP](#nelexaenum---enum-implementation-for-php)
+   * [Table of Contents](#table-of-contents)
    * [Installation](#installation)
    * [Enum declaration](#enum-declaration)
    * [Usage](#usage)
@@ -21,11 +22,11 @@ Table of Contents
       * [Use enum in the type hint](#use-enum-in-the-type-hint)
       * [Add some logic to enum](#add-some-logic-to-enum)
       * [Initialization of values ​​without constructor](#initialization-of-values-without-constructor)
+   * [Class Synopsis](#class-synopsis)
    * [Usage tips](#usage-tips)
    * [Generate PHPDoc for enum class](#generate-phpdoc-for-enum-class)
    * [Changelog](#changelog)
    * [License](#license)
-
 
 # Installation
 ```bash
@@ -308,6 +309,22 @@ Your weight on SATURN is 186.552719
 Your weight on URANUS is 158.397260
 Your weight on NEPTUNE is 199.207413
 Your weight on PLUTO is 11.703031
+```
+
+## Class Synopsis
+```php
+abstract class Nelexa\Enum {
+
+    /* Methods */
+    final public static valueOf ( string $name ) : static
+    final public name ( void ) : string
+    final public value ( void ) : string | int | float | bool | array | null
+    final public static values ( void ) : static[]
+    final public static containsKey ( string $name ) : bool
+    final public static containsValue ( mixed $value [, bool $strict = true ] ) : bool
+    final public ordinal ( void ) : int
+    public __toString ( void ) : string
+}
 ```
 
 # Usage tips
