@@ -23,7 +23,7 @@ function enum_docblock($enumOrEnumClass): string
      * @var Enum $enum
      */
     foreach (call_user_func([$enumOrEnumClass, 'values']) as $enum) {
-        $docBlock .= ' * @method static self ' . $enum->name() . PHP_EOL;
+        $docBlock .= ' * @method static self ' . $enum->name() . '()' . PHP_EOL;
     }
     $docBlock .= ' */' . PHP_EOL;
     return $docBlock;

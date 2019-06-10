@@ -9,17 +9,17 @@ use Nelexa\Enum;
 /**
  * Class Planet
  *
- * @method static self MERCURY
- * @method static self VENUS
- * @method static self EARTH
- * @method static self MARS
- * @method static self JUPITER
- * @method static self SATURN
- * @method static self URANUS
- * @method static self NEPTUNE
- * @method static self PLUTO
+ * @method static self MERCURY()
+ * @method static self VENUS()
+ * @method static self EARTH()
+ * @method static self MARS()
+ * @method static self JUPITER()
+ * @method static self SATURN()
+ * @method static self URANUS()
+ * @method static self NEPTUNE()
+ * @method static self PLUTO()
  *
- * @see example https://docs.oracle.com/javase/8/docs/technotes/guides/language/enums.html
+ * @see https://docs.oracle.com/javase/8/docs/technotes/guides/language/enums.html
  */
 class Planet extends Enum
 {
@@ -56,25 +56,37 @@ class Planet extends Enum
      */
     protected function initValue($value): void
     {
-        $this->mass = $value[0];
-        $this->radius = $value[1];
+        [$this->mass, $this->radius] = $value;
     }
 
+    /**
+     * @return float
+     */
     public function mass(): float
     {
         return $this->mass;
     }
 
+    /**
+     * @return float
+     */
     public function radius(): float
     {
         return $this->radius;
     }
 
+    /**
+     * @return float
+     */
     public function surfaceGravity(): float
     {
         return self::$G * $this->mass / ($this->radius * $this->radius);
     }
 
+    /**
+     * @param float $otherMass
+     * @return float
+     */
     public function surfaceWeight(float $otherMass): float
     {
         return round($otherMass * $this->surfaceGravity(), 6);

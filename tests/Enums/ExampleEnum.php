@@ -8,23 +8,23 @@ namespace Nelexa\Tests\Enums;
 use Nelexa\Enum;
 
 /**
- * @method static self VALUE_INT
- * @method static self VALUE_INT_1000
- * @method static self VALUE_STRING
- * @method static self VALUE_BOOL_TRUE
- * @method static self VALUE_BOOL_FALSE
- * @method static self VALUE_FLOAT
- * @method static self VALUE_NULL
- * @method static self VALUE_EMPTY_STRING
- * @method static self VALUE_EQUALS_1
- * @method static self VALUE_EQUALS_2
- * @method static self SCALAR_EXPRESSION
- * @method static self CONST
- * @method static self PUBLIC_CONST
- * @method static self PRIVATE_CONST
- * @method static self PROTECTED_CONST
- * @method static self LANG_CODES
- * @method static self COUNTRY_CODES
+ * @method static self VALUE_INT()
+ * @method static self VALUE_INT_1000()
+ * @method static self VALUE_STRING()
+ * @method static self VALUE_BOOL_TRUE()
+ * @method static self VALUE_BOOL_FALSE()
+ * @method static self VALUE_FLOAT()
+ * @method static self VALUE_NULL()
+ * @method static self VALUE_EMPTY_STRING()
+ * @method static self VALUE_EQUALS_1()
+ * @method static self VALUE_EQUALS_2()
+ * @method static self SCALAR_EXPRESSION()
+ * @method static self CONST()
+ * @method static self PUBLIC_CONST()
+ * @method static self PRIVATE_CONST()
+ * @method static self PROTECTED_CONST()
+ * @method static self LANG_CODES()
+ * @method static self COUNTRY_CODES()
  */
 class ExampleEnum extends Enum
 {

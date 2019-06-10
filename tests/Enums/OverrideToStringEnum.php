@@ -7,8 +7,8 @@ namespace Nelexa\Tests\Enums;
 use Nelexa\Enum;
 
 /**
- * @method static Enum TOP
- * @method static Enum NEW
+ * @method static Enum TOP()
+ * @method static Enum NEW()
  */
 class OverrideToStringEnum extends Enum
 {

@@ -7,10 +7,10 @@ namespace Nelexa\Tests\Enums;
 use Nelexa\Enum;
 
 /**
- * @method static self PLUS
- * @method static self MINUS
- * @method static self TIMES
- * @method static self DIVIDE
+ * @method static self PLUS()
+ * @method static self MINUS()
+ * @method static self TIMES()
+ * @method static self DIVIDE()
  */
 class Operation extends Enum
 {
