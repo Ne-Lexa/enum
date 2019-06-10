@@ -3,10 +3,15 @@
 [![Packagist Version](https://img.shields.io/packagist/v/nelexa/enum.svg)](https://packagist.org/packages/nelexa/enum)
 [![Packagist](https://img.shields.io/packagist/dt/nelexa/enum.svg?color=%23ff007f)](https://packagist.org/packages/nelexa/enum)
 [![Build Status](https://travis-ci.org/Ne-Lexa/enum.svg?branch=master)](https://travis-ci.org/Ne-Lexa/enum)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Ne-Lexa/enum/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Ne-Lexa/enum/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/Ne-Lexa/enum/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Ne-Lexa/enum/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/Ne-Lexa/enum/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Ne-Lexa/enum/build-status/master)
 [![License](https://img.shields.io/packagist/l/nelexa/enum.svg)](https://packagist.org/packages/nelexa/enum)
 
 Table of Contents
 =================
+   * [nelexa/enum - Enum implementation for PHP](#nelexaenum---enum-implementation-for-php)
+   * [Table of Contents](#table-of-contents)
    * [Installation](#installation)
    * [Enum declaration](#enum-declaration)
    * [Usage](#usage)
@@ -17,11 +22,11 @@ Table of Contents
       * [Use enum in the type hint](#use-enum-in-the-type-hint)
       * [Add some logic to enum](#add-some-logic-to-enum)
       * [Initialization of values ​​without constructor](#initialization-of-values-without-constructor)
+   * [Class Synopsis](#class-synopsis)
    * [Usage tips](#usage-tips)
    * [Generate PHPDoc for enum class](#generate-phpdoc-for-enum-class)
    * [Changelog](#changelog)
    * [License](#license)
-
 
 # Installation
 ```bash
@@ -35,10 +40,10 @@ composer require nelexa/enum
 use Nelexa\Enum;
 
 /**
- * @method static self PENDING
- * @method static self ACTIVE
- * @method static self INACTIVE
- * @method static self DELETED
+ * @method static self PENDING()
+ * @method static self ACTIVE()
+ * @method static self INACTIVE()
+ * @method static self DELETED()
  */
 class UserStatus extends Enum
 {
@@ -155,10 +160,10 @@ User status is INACTIVE
 <?php
 
 /**
- * @method static self PLUS
- * @method static self MINUS
- * @method static self TIMES
- * @method static self DIVIDE
+ * @method static self PLUS()
+ * @method static self MINUS()
+ * @method static self TIMES()
+ * @method static self DIVIDE()
  */
 class Operation extends \Nelexa\Enum
 {
@@ -212,17 +217,17 @@ use Nelexa\Enum;
 /**
  * Class Planet
  *
- * @method static self MERCURY
- * @method static self VENUS
- * @method static self EARTH
- * @method static self MARS
- * @method static self JUPITER
- * @method static self SATURN
- * @method static self URANUS
- * @method static self NEPTUNE
- * @method static self PLUTO
+ * @method static self MERCURY()
+ * @method static self VENUS()
+ * @method static self EARTH()
+ * @method static self MARS()
+ * @method static self JUPITER()
+ * @method static self SATURN()
+ * @method static self URANUS()
+ * @method static self NEPTUNE()
+ * @method static self PLUTO()
  *
- * @see example https://docs.oracle.com/javase/8/docs/technotes/guides/language/enums.html
+ * @see https://docs.oracle.com/javase/8/docs/technotes/guides/language/enums.html
  */
 class Planet extends Enum
 {
@@ -259,8 +264,7 @@ class Planet extends Enum
      */
     protected function initValue($value): void
     {
-        $this->mass = $value[0];
-        $this->radius = $value[1];
+        [$this->mass, $this->radius] = $value;
     }
 
     public function mass(): float
@@ -307,6 +311,22 @@ Your weight on NEPTUNE is 199.207413
 Your weight on PLUTO is 11.703031
 ```
 
+## Class Synopsis
+```php
+abstract class Nelexa\Enum {
+
+    /* Methods */
+    final public static valueOf ( string $name ) : static
+    final public name ( void ) : string
+    final public value ( void ) : string | int | float | bool | array | null
+    final public static values ( void ) : static[]
+    final public static containsKey ( string $name ) : bool
+    final public static containsValue ( mixed $value [, bool $strict = true ] ) : bool
+    final public ordinal ( void ) : int
+    public __toString ( void ) : string
+}
+```
+
 # Usage tips
 * Even though it is not mandatory to declare enum constants with **UPPERCASE** letters, it is in the best practice to do so.
 * Enum classes can have fields and methods along with enum constants.
@@ -333,15 +353,15 @@ echo \Nelexa\enum_docblock(Planet::MERCURY());
 Output:
 ```
 /**
- * @method static self MERCURY
- * @method static self VENUS
- * @method static self EARTH
- * @method static self MARS
- * @method static self JUPITER
- * @method static self SATURN
- * @method static self URANUS
- * @method static self NEPTUNE
- * @method static self PLUTO
+ * @method static self MERCURY()
+ * @method static self VENUS()
+ * @method static self EARTH()
+ * @method static self MARS()
+ * @method static self JUPITER()
+ * @method static self SATURN()
+ * @method static self URANUS()
+ * @method static self NEPTUNE()
+ * @method static self PLUTO()
  */
 ```
 
