@@ -101,7 +101,7 @@ abstract class Enum
      *
      * @return array Array of constants.
      */
-    private static function getEnumConstants(): array
+    protected static function getEnumConstants(): array
     {
         static $enumConstants = [];
         if (!isset($enumConstants[static::class])) {
@@ -168,7 +168,7 @@ abstract class Enum
     /**
      * Checks if enum contains a passed value.
      *
-     * @param mixed $value Checked value.
+     * @param string|int|float|bool|array|null $value Checked value.
      * @param bool $strict Strict check.
      *
      * @return bool Returns true if the value is defined in one of the constants.
@@ -176,6 +176,26 @@ abstract class Enum
     final public static function containsValue($value, bool $strict = true): bool
     {
         return in_array($value, self::getEnumConstants(), $strict);
+    }
+
+    /**
+     * Returns first enum of the specified constant value.
+     *
+     * @param string|int|float|bool|array|null $value Checked value.
+     *
+     * @return static the enum constant of the specified constant value.
+     */
+    final public static function fromValue($value): self
+    {
+        $key = array_search($value, self::getEnumConstants(), true);
+        if ($key === false) {
+            throw new \InvalidArgumentException(sprintf(
+                'Constant value "%s" is not defined in the %s class.',
+                $value,
+                static::class
+            ));
+        }
+        return self::valueOf($key);
     }
 
     /**

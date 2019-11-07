@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Nelexa\Tests;
 
-use Nelexa\Tests\Enums\ExampleEnum;
 use Nelexa\Tests\Enums\EnumExtended;
+use Nelexa\Tests\Enums\ExampleEnum;
 use Nelexa\Tests\Enums\OverrideToStringEnum;
 use PHPUnit\Framework\TestCase;
 
@@ -194,5 +194,57 @@ class EnumTest extends TestCase
         $this->assertFalse(property_exists($enum, 'new_field_name'));
 
         unset($enum->new_field_name); // __unset invoke
+    }
+
+    /**
+     * @dataProvider provideEnumFromValue
+     *
+     * @param string $name
+     * @param mixed $value
+     */
+    public function testEnumFromValue(string $name, $value): void
+    {
+        $enum = ExampleEnum::valueOf($name);
+
+        $this->assertSame(ExampleEnum::fromValue($value), $enum);
+    }
+
+    /**
+     * @return array
+     */
+    public function provideEnumFromValue(): array
+    {
+        return [
+            ['VALUE_INT', ExampleEnum::VALUE_INT],
+            ['VALUE_INT_1000', ExampleEnum::VALUE_INT_1000],
+            ['VALUE_STRING', ExampleEnum::VALUE_STRING],
+            ['VALUE_BOOL_TRUE', ExampleEnum::VALUE_BOOL_TRUE],
+            ['VALUE_BOOL_FALSE', ExampleEnum::VALUE_BOOL_FALSE],
+            ['VALUE_FLOAT', ExampleEnum::VALUE_FLOAT],
+            ['VALUE_NULL', ExampleEnum::VALUE_NULL],
+            ['VALUE_EMPTY_STRING', ExampleEnum::VALUE_EMPTY_STRING],
+            ['SCALAR_EXPRESSION', ExampleEnum::SCALAR_EXPRESSION],
+            ['CONST', ExampleEnum::CONST],
+            ['PUBLIC_CONST', ExampleEnum::PUBLIC_CONST],
+            ['PRIVATE_CONST', 'private'],
+            ['PROTECTED_CONST', 'protected'],
+            ['LANG_CODES', ExampleEnum::LANG_CODES],
+            ['COUNTRY_CODES', ExampleEnum::COUNTRY_CODES],
+        ];
+    }
+
+    public function testEnumFromValueForSameValues(): void
+    {
+        $this->assertSame(ExampleEnum::fromValue(ExampleEnum::VALUE_EQUALS_1), ExampleEnum::VALUE_EQUALS_1());
+        $this->assertSame(ExampleEnum::fromValue(ExampleEnum::VALUE_EQUALS_2), ExampleEnum::VALUE_EQUALS_1());
+        $this->assertNotSame(ExampleEnum::fromValue(ExampleEnum::VALUE_EQUALS_2), ExampleEnum::VALUE_EQUALS_2());
+    }
+
+    public function testEnumFromValueIncorrectValue(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Constant value "Unknown value" is not defined');
+
+        ExampleEnum::fromValue('Unknown value');
     }
 }
