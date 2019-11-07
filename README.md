@@ -18,6 +18,7 @@ Table of Contents
       * [To loop a enum object](#to-loop-a-enum-object)
       * [To compare the enum values, use === operator](#to-compare-the-enum-values-use--operator)
       * [Convert a string to enum object](#convert-a-string-to-enum-object)
+      * [Convert a value to enum object](#convert-a-value-to-enum-object)
       * [Switch case](#switch-case)
       * [Use enum in the type hint](#use-enum-in-the-type-hint)
       * [Add some logic to enum](#add-some-logic-to-enum)
@@ -96,6 +97,15 @@ if ($userStatus === UserStatus::DELETED()) {
 $enum = UserStatus::valueOf('ACTIVE');
 
 assert(UserStatus::ACTIVE() === UserStatus::valueOf('ACTIVE'));
+```
+
+## Convert a value to enum object
+```php
+$enum = UserStatus::valueOf('ACTIVE');
+$value = $enum->value();
+
+assert(UserStatus::fromValue($value) === $enum);
+assert(UserStatus::fromValue($value) === UserStatus::valueOf('ACTIVE'));
 ```
 
 ## Switch case
@@ -322,8 +332,10 @@ abstract class Nelexa\Enum {
     final public static values ( void ) : static[]
     final public static containsKey ( string $name ) : bool
     final public static containsValue ( mixed $value [, bool $strict = true ] ) : bool
+    final public static function fromValue( mixed $value ): static
     final public ordinal ( void ) : int
     public __toString ( void ) : string
+    protected static function getEnumConstants(): array
 }
 ```
 
