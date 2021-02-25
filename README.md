@@ -2,7 +2,7 @@
 
 [![Packagist Version](https://img.shields.io/packagist/v/nelexa/enum.svg)](https://packagist.org/packages/nelexa/enum)
 [![Packagist](https://img.shields.io/packagist/dt/nelexa/enum.svg?color=%23ff007f)](https://packagist.org/packages/nelexa/enum)
-[![Build Status](https://travis-ci.org/Ne-Lexa/enum.svg?branch=master)](https://travis-ci.org/Ne-Lexa/enum)
+[![Build Status](https://github.com/Ne-Lexa/enum/workflows/build/badge.svg)](https://github.com/Ne-Lexa/enum/actions)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Ne-Lexa/enum/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Ne-Lexa/enum/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/Ne-Lexa/enum/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Ne-Lexa/enum/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/Ne-Lexa/enum/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Ne-Lexa/enum/build-status/master)
